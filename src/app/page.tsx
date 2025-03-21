@@ -105,9 +105,10 @@ export default function TravelPlannerPage() {
 
       const planData = await planResponse.json()
       setTravelPlan(planData)
-
       // Get images for locations
-      const locations = planData.days.flatMap((day) => day.activities.map((activity) => activity.location))
+      const locations = planData.days.flatMap((day: { activities: { location: string }[] }) => 
+        day.activities.map((activity: { location: string }) => activity.location)
+      )
       const uniqueLocations = [...new Set(locations)]
 
       const imagePromises = uniqueLocations.map(async (location) => {
@@ -131,8 +132,7 @@ export default function TravelPlannerPage() {
           imageUrl: imageData.imageUrl || "/placeholder.svg",
         }
       })
-
-      const imageResults = await Promise.all(imagePromises)
+      const imageResults = await Promise.all(imagePromises) as ImageResult[]
       setImages(imageResults)
     } catch (error) {
       console.error("Error generating travel plan:", error)
