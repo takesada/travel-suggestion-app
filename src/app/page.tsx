@@ -157,7 +157,7 @@ export default function TravelPlannerPage() {
 
   return (
     <main className="container mx-auto px-4 py-8 bg-softblue-light min-h-screen">
-      <h1 className="text-3xl font-bold text-center mb-8 text-softblue-dark">旅行プラン提案アプリ</h1>
+      <h1 className="text-3xl font-bold text-center mb-8 text-softblue-dark">Plannity</h1>
 
       <div className="max-w-3xl mx-auto space-y-8">
         <Card className="border-softblue">
@@ -281,7 +281,7 @@ export default function TravelPlannerPage() {
 
                 <Button
                   type="submit"
-                  className="w-full py-6 text-lg bg-softblue hover:bg-softblue-dark"
+                  className="w-full py-6 text-lg bg-softblue hover:bg-softblue-dark text-black border border-gray-200"
                   disabled={isLoading}
                 >
                   {isLoading ? "生成中..." : "旅行プランを生成"}
